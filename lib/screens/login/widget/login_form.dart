@@ -1,9 +1,14 @@
+import 'dart:async';
+
+import 'package:comunik/bloc/login/login_bloc.dart';
+import 'package:comunik/bloc/login/login_bloc_state.dart';
 import 'package:comunik/screens/homescreen/home_screen.dart';
 import 'package:comunik/util/constants.dart';
 import 'package:comunik/util/global_keys.dart';
 import 'package:comunik/widgets/customFormTextField.dart';
 import 'package:comunik/widgets/rounded_flat_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -11,9 +16,39 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  LoginBloc _loginBloc;
+  StreamSubscription _stateSubscription;
+
+  void initState() {
+    super.initState();
+
+    _stateSubscription = _loginBloc.outState.listen((LoginBlocState) {
+      switch (LoginBlocState.state) {
+        case LoginState.IDLE:
+          break;
+        case LoginState.LOADING:
+          // loadingDialog(context);
+          break;
+        case LoginState.ERROR:
+        case LoginState.DONE:
+          // Routes.sailor.pop();todo Change to navigation of
+          break;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _loginBloc.dispose();
+    _stateSubscription.cancel();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    _loginBloc = Provider.of<LoginBloc>(context);
     return Container(
       child: Form(
         key: GlobalKeys.loginScreenFormKey,
