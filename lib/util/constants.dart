@@ -25,5 +25,6 @@ Map<int, Color> primaryCustomColor = {
   900: Color.fromRGBO(23, 3, 58, 1),
 };
 const kPrimaryCustomColor = Color(0xff101036);
+const kWhite = Color(0xffffffff);
 const kPrimaryColor = Colors.indigo;
 var kPrimaryLightColor = Colors.indigo[50];

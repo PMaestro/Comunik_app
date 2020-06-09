@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:comunik/bloc/login/login_bloc.dart';
-import 'package:comunik/bloc/login/login_bloc_state.dart';
 import 'package:comunik/screens/homescreen/home_screen.dart';
+import 'package:comunik/screens/login/widget/already_have_an_account_check.dart';
+import 'package:comunik/screens/login/widget/rounded_password_field.dart';
+import 'package:comunik/screens/login/widget/rounded_text_field.dart';
 import 'package:comunik/util/constants.dart';
 import 'package:comunik/util/global_keys.dart';
-import 'package:comunik/widgets/customFormTextField.dart';
 import 'package:comunik/widgets/rounded_flat_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,26 +23,25 @@ class _LoginFormState extends State<LoginForm> {
   void initState() {
     super.initState();
 
-    _stateSubscription = _loginBloc.outState.listen((LoginBlocState) {
-      switch (LoginBlocState.state) {
-        case LoginState.IDLE:
-          break;
-        case LoginState.LOADING:
-          // loadingDialog(context);
-          break;
-        case LoginState.ERROR:
-        case LoginState.DONE:
-          // Routes.sailor.pop();todo Change to navigation of
-          break;
-      }
-    });
+//    _stateSubscription = _loginBloc.outState.listen((LoginBlocState) {
+//      switch (LoginBlocState.state) {
+//        case LoginState.IDLE:
+//          break;
+//        case LoginState.LOADING:
+//          // loadingDialog(context);
+//          break;
+//        case LoginState.ERROR:
+//        case LoginState.DONE:
+//          // Routes.sailor.pop();todo Change to navigation of
+//          break;
+//      }
+//    });
   }
 
   @override
   void dispose() {
     _loginBloc.dispose();
-    _stateSubscription.cancel();
-
+//    _stateSubscription.cancel();
     super.dispose();
   }
 
@@ -54,6 +54,9 @@ class _LoginFormState extends State<LoginForm> {
         key: GlobalKeys.loginScreenFormKey,
         child: Column(
           children: <Widget>[
+            SizedBox(
+              height: size.height * 0.03,
+            ),
             Text(
               'Login',
               style: TextStyle(
@@ -63,29 +66,43 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.06,
+              height: size.height * 0.03,
             ),
-            CustomTextField(
-              inputType: TextInputType.emailAddress,
-              protectedPassword: false,
-              boxColor: kPrimaryColor,
-              textColor: Colors.white,
-              fontSize: 16,
-              hintText: "Insira o seu e-mail",
-              icon: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
+            RoundedInputField(
+              hintText: "Your Email",
+              onChanged: (value) {},
             ),
-            CustomTextField(
-              inputType: TextInputType.text,
-              protectedPassword: true,
-              boxColor: kPrimaryColor,
-              textColor: Colors.white,
-              fontSize: 16,
-              hintText: "Senha",
-              icon: Icon(Icons.lock, color: Colors.white),
-              suffixIcon: Icon(Icons.visibility, color: Colors.white),
+            SizedBox(
+              height: size.height * 0.03,
+            ),
+            RoundedPasswordField(
+              onChanged: (value) {},
+            ),
+
+//            CustomTextField(
+//              inputType: TextInputType.emailAddress,
+//              protectedPassword: false,
+//              boxColor: kPrimaryColor,
+//              textColor: Colors.white,
+//              fontSize: 16,
+//              hintText: "Insira o seu e-mail",
+//              icon: Icon(
+//                Icons.person,
+//                color: Colors.white,
+//              ),
+//            ),
+//            CustomTextField(
+//              inputType: TextInputType.text,
+//              protectedPassword: true,
+//              boxColor: kPrimaryColor,
+//              textColor: Colors.white,
+//              fontSize: 16,
+//              hintText: "Senha",
+//              icon: Icon(Icons.lock, color: Colors.white),
+//              suffixIcon: Icon(Icons.visibility, color: Colors.white),
+//            ),
+            SizedBox(
+              height: size.height * 0.03,
             ),
             RoundedFlatButton(
               color: kPrimaryCustomColor,
@@ -95,6 +112,12 @@ class _LoginFormState extends State<LoginForm> {
               press: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
               },
+            ),
+            SizedBox(
+              height: size.height * 0.03,
+            ),
+            AlreadyHaveAnAccountCheck(
+              press: () {},
             ),
           ],
         ),
