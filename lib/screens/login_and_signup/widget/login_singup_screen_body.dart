@@ -1,6 +1,7 @@
 import 'package:comunik/bloc/login/login_bloc.dart';
 import 'package:comunik/screens/login/login_screen.dart';
 import 'package:comunik/screens/login_and_signup/widget/background_login_singup.dart';
+import 'package:comunik/screens/signup/singup_screen.dart';
 import 'package:comunik/util/constants.dart';
 import 'package:comunik/widgets/rounded_flat_button.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class LoginSingupScreenBody extends StatelessWidget {
                 textColor: Colors.black,
                 circularRadius: 29,
                 press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SingupScreen()));
                 },
               ),
             ],

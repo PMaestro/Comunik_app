@@ -19,13 +19,14 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
         Text(login ? "Não tem uma conta ?" : "Já possui conta?",
             style: TextStyle(
               color: kPrimaryCustomColor,
+              fontSize: 16,
             )),
         SizedBox(
           width: size.width * 0.02,
         ),
         GestureDetector(
           onTap: () {},
-          child: Text(login ? "Inscrever-se" : "Faça log in",
+          child: Text(login ? "Inscreva-se" : "Faça log in",
               style: TextStyle(
                 color: kPrimaryCustomColor,
                 fontWeight: FontWeight.bold,
