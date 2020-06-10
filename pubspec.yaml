@@ -23,6 +23,7 @@ dependencies:
   dio: 3.0.9
   rxdart: 0.24.1
   shared_preferences: 0.5.7+3
+  firebase_messaging: ^6.0.16
   moor: # use the latest version
   moor_ffi: # use the latest version
   path_provider:

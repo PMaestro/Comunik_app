@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "849427267669",
+    "firebase_url": "https://comunik-d733c.firebaseio.com",
+    "project_id": "comunik-d733c",
+    "storage_bucket": "comunik-d733c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849427267669:android:91a65eb32112170f4954dc",
+        "android_client_info": {
+          "package_name": "br.com.ericmaxwell.comunik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849427267669-7e2amv8h6hqpcrljbumrt9ttd8u79e0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC70OtLJRpfVV55-l4ftfEMwalqTr-9U-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849427267669-7e2amv8h6hqpcrljbumrt9ttd8u79e0b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

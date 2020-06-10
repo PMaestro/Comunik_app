@@ -35,9 +35,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-//MultiProvider(
-//providers: [
-//Provider<MyDatabase>.value(value: MyDatabase()),
-//Provider<LoginBloc>.value(value: LoginBloc()),
-//],
