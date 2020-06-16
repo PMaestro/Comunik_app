@@ -14,6 +14,7 @@ class UsersDao extends DatabaseAccessor<MyDatabase> with _$UsersDaoMixin {
   //R
   Future<User> getUserById(String id) => (select(db.users)..where((t) => t.id.equals(id))).getSingle();
   Future<List<User>> getAllUsers() => select(db.users).get();
+  Stream<List<User>> watchAllUsers() => select(db.users).watch();
 
   //U
   Future updateUser(User user) => (update(db.users)..where((t) => t.id.equals(user.id))).replace(user);

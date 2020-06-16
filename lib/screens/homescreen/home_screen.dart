@@ -1,8 +1,10 @@
+import 'package:comunik/data/data_sources/local/daos/users_dao.dart';
 import 'package:comunik/util/constants.dart';
 import 'package:comunik/widgets/category_selector.dart';
 import 'package:comunik/widgets/favorite_contatcs.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -35,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final _users = Provider.of<UsersDao>(context);
     return Scaffold(
       backgroundColor: kPrimaryCustomColor,
       appBar: AppBar(
@@ -63,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomAppBar(),
       body: Column(
         children: <Widget>[
           CategorySelector(),
@@ -74,7 +78,22 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Column(
                 children: <Widget>[
-                  FavoriteContacts(),
+                  FavoriteContacts(
+                    favorites: _users.getAllUsers(),
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).accentColor,
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+                      ),
+                      child: StreamBuilder(
+                        builder: (context, snapshot) {
+                          return Container();
+                        },
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
