@@ -39,7 +39,7 @@ class MyDatabase extends _$MyDatabase {
   // you should bump this number whenever you change or add a table definition. Migrations
   // are covered later in this readme.
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(beforeOpen: (details) async {
@@ -52,7 +52,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'Flores',
           email: 'cory_flores@test.com',
           imageUrl: 'images/profiles/Cory Flores.jpg',
-          bithDate: '01/01/2000',
+          birthDate: '01/01/2000',
           cpf: "964.112.940-62",
           password: '123',
         ));
@@ -63,7 +63,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'Romero',
           email: 'connie_romero@test.com',
           imageUrl: 'images/profiles/Connie Romero.jpg',
-          bithDate: '01/02/2000',
+          birthDate: '01/02/2000',
           cpf: "986.978.370-81",
           password: '123',
         ));
@@ -74,7 +74,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'Burke',
           email: 'eduardo_burke@test.com',
           imageUrl: 'images/profiles/Eduardo Burke.jpg',
-          bithDate: '01/03/2000',
+          birthDate: '01/03/2000',
           cpf: "986.978.370-81",
           password: '123',
         ));
@@ -85,7 +85,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'Diaz',
           email: 'georgia_diaz@test.com',
           imageUrl: 'images/profiles/Georgia Diaz.jpg',
-          bithDate: '01/04/2000',
+          birthDate: '01/04/2000',
           cpf: "682.522.080-29",
           password: '123',
         ));
@@ -96,7 +96,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'James',
           email: 'jar_james@test.com',
           imageUrl: 'images/profiles/Jar James.jpg',
-          bithDate: '01/05/2000',
+          birthDate: '01/05/2000',
           cpf: "447.516.510-56",
           password: '123',
         ));
@@ -107,7 +107,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'Aleatorius',
           email: 'louise@test.com',
           imageUrl: 'images/profiles/louise.jpg',
-          bithDate: '01/06/2000',
+          birthDate: '01/06/2000',
           cpf: "355.575.100-01",
           password: '123',
         ));
@@ -118,7 +118,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'Mills',
           email: 'regina_mills@test.com',
           imageUrl: 'images/profiles/Regina Mills.jpg',
-          bithDate: '01/07/2000',
+          birthDate: '01/07/2000',
           cpf: "375.236.560-99",
           password: '123',
         ));
@@ -129,7 +129,7 @@ class MyDatabase extends _$MyDatabase {
           lastName: 'Reynolds',
           email: 'sheila_reynolds@test.com',
           imageUrl: 'images/profiles/Sheila Reynolds.jpg',
-          bithDate: '01/08/2000',
+          birthDate: '01/08/2000',
           cpf: "050.640.540-09",
           password: '123',
         ));

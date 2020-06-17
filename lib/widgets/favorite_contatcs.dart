@@ -45,24 +45,26 @@ class FavoriteContacts extends StatelessWidget {
                 initialData: '',
                 builder: (context, snapshot) {
                   return ListView.builder(
-                      padding: EdgeInsets.only(left: 10.0, top: 3.0,),
+                      padding: EdgeInsets.only(
+                        left: 10.0,
+                        top: 3.0,
+                      ),
                       scrollDirection: Axis.horizontal,
                       itemCount: snapshot.data.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Padding(
-                          padding:  EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Column(
                             children: <Widget>[
                               CircleAvatar(
                                 radius: 35.0,
-                                backgroundImage:
-                                    AssetImage(snapshot.data[index].imageUrl),
+                                backgroundImage: AssetImage(snapshot.data[index].imageUrl),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
                               Text(
-                                snapshot.data[index].name,
+                                snapshot.data[index].firstName,
                                 style: TextStyle(
                                   color: Colors.blueGrey,
                                   fontSize: 16,

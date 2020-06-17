@@ -1,10 +1,10 @@
 import 'package:comunik/data/data_sources/local/database/database.dart';
-import 'package:comunik/data/data_sources/local/tables/users.dart';
+import 'package:comunik/data/data_sources/local/tables/messages.dart';
 import 'package:moor/moor.dart';
 
 part 'messages_dao.g.dart';
 
-@UseDao(tables: [Users])
+@UseDao(tables: [Messages])
 class MessagesDao extends DatabaseAccessor<MyDatabase> with _$MessagesDaoMixin {
   MessagesDao(MyDatabase db) : super(db);
 

@@ -1,4 +1,6 @@
-class UserModel {
+import 'package:comunik/data/models/super_model.dart';
+
+class UserModel extends SuperModel {
   String _id;
   String _fistName;
   String _lastName;

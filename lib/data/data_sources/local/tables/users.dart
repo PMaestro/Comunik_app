@@ -16,11 +16,9 @@ class Users extends Table {
 
   TextColumn get imageUrl => text()();
 
-  TextColumn get bithDate => text()();
+  TextColumn get birthDate => text()();
 
   TextColumn get cpf => text()();
-
-  IntColumn get contactList => integer().customConstraint('REFERENCES contactLists(id)')();
 
   @override
   Set<Column> get primaryKey => {id};

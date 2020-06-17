@@ -1,11 +1,11 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'messages_dao.dart';
+part of 'user_groups_dao.dart';
 
 // **************************************************************************
 // DaoGenerator
 // **************************************************************************
 
-mixin _$MessagesDaoMixin on DatabaseAccessor<MyDatabase> {
-  $MessagesTable get messages => attachedDatabase.messages;
+mixin _$UserGroupsDaoMixin on DatabaseAccessor<MyDatabase> {
+  $UserGroupsTable get userGroups => attachedDatabase.userGroups;
 }
