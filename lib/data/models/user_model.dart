@@ -1,38 +1,40 @@
-import 'package:comunik/data/models/super_model.dart';
-
-class UserModel extends SuperModel {
+class UserModel {
   String _id;
-  String _nome;
+  String _fistName;
+  String _lastName;
   String _email;
   String _password;
   String _imageUrl;
   String _bithDate;
   String _cpf;
 
-//  static final UserModel _singleton = UserModel._internal();
-//
-//  factory UserModel.singleton() {
-//    return _singleton;
-//  }
-//
-//  UserModel._internal();
-
-  UserModel({String nome, String email, String id, String password, String imageUrl, String bithDate, String cpf}) {
-    this._nome = nome;
-    this._email = email;
+  UserModel(
+      {String id,
+      String fistName,
+      String lastName,
+      String email,
+      String password,
+      String imageUrl,
+      String bithDate,
+      String cpf}) {
     this._id = id;
+    this._fistName = fistName;
+    this._lastName = lastName;
+    this._email = email;
     this._password = password;
     this._imageUrl = imageUrl;
     this._bithDate = bithDate;
     this._cpf = cpf;
   }
 
-  String get nome => _nome;
-  set nome(String nome) => _nome = nome;
-  String get email => _email;
-  set email(String email) => _email = email;
   String get id => _id;
   set id(String id) => _id = id;
+  String get fistName => _fistName;
+  set fistName(String fistName) => _fistName = fistName;
+  String get lastName => _lastName;
+  set lastName(String lastName) => _lastName = lastName;
+  String get email => _email;
+  set email(String email) => _email = email;
   String get password => _password;
   set password(String password) => _password = password;
   String get imageUrl => _imageUrl;
@@ -43,9 +45,10 @@ class UserModel extends SuperModel {
   set cpf(String cpf) => _cpf = cpf;
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    _nome = json['nome'];
-    _email = json['email'];
     _id = json['id'];
+    _fistName = json['fistName'];
+    _lastName = json['lastName'];
+    _email = json['email'];
     _password = json['password'];
     _imageUrl = json['imageUrl'];
     _bithDate = json['bithDate'];
@@ -54,9 +57,10 @@ class UserModel extends SuperModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['nome'] = this._nome;
-    data['email'] = this._email;
     data['id'] = this._id;
+    data['fistName'] = this._fistName;
+    data['lastName'] = this._lastName;
+    data['email'] = this._email;
     data['password'] = this._password;
     data['imageUrl'] = this._imageUrl;
     data['bithDate'] = this._bithDate;
