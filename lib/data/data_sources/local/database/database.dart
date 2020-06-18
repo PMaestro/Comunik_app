@@ -38,101 +38,119 @@ class MyDatabase extends _$MyDatabase {
 
   // you should bump this number whenever you change or add a table definition. Migrations
   // are covered later in this readme.
+  User sheila = User(
+    id: 'bb58735f-9869-4755-9937-6210b16a93f8',
+    fistname: 'Sheila',
+    lastname: 'Reynolds',
+    email: 'sheila_reynolds@test.com',
+    imageurl: 'images/profiles/Sheila Reynolds.jpg',
+    birthdate: '01/08/2000',
+    cpf: "050.640.540-09",
+    password: '123',
+  );
+
+  User connie = User(
+    id: 'f4bbe21a-0716-40f0-8459-eb25f03fcd7d',
+    fistname: 'Connie',
+    lastname: 'Romero',
+    email: 'connie_romero@test.com',
+    imageurl: 'images/profiles/Connie Romero.jpg',
+    birthdate: '01/02/2000',
+    cpf: "986.978.370-81",
+    password: '123',
+  );
+
+  User eduardo = User(
+    id: 'a679ad3e-3add-4a5b-8610-988a40c061f9',
+    fistname: 'Eduardo',
+    lastname: 'Burke',
+    email: 'eduardo_burke@test.com',
+    imageurl: 'images/profiles/Eduardo Burke.jpg',
+    birthdate: '01/03/2000',
+    cpf: "986.978.370-81",
+    password: '123',
+  );
+
+  User georgia = User(
+    id: '31262fce-0704-40d8-be76-13a3633296c4',
+    fistname: 'Georgia',
+    lastname: 'Diaz',
+    email: 'georgia_diaz@test.com',
+    imageurl: 'images/profiles/Georgia Diaz.jpg',
+    birthdate: '01/04/2000',
+    cpf: "682.522.080-29",
+    password: '123',
+  );
+
+  User jar = User(
+    id: 'daca657d-2437-426a-8fa8-1d5096946586',
+    fistname: 'Jar',
+    lastname: 'James',
+    email: 'jar_james@test.com',
+    imageurl: 'images/profiles/Jar James.jpg',
+    birthdate: '01/05/2000',
+    cpf: "447.516.510-56",
+    password: '123',
+  );
+
+  User louise = User(
+    id: 'c4228990-89d3-4dfd-a584-591b4fe47d63',
+    fistname: 'louise',
+    lastname: 'Aleatorius',
+    email: 'louise@test.com',
+    imageurl: 'images/profiles/louise.jpg',
+    birthdate: '01/06/2000',
+    cpf: "355.575.100-01",
+    password: '123',
+  );
+
+  User regina = User(
+    id: '40d460c8-1b7f-4271-be56-8994dfa5102d',
+    fistname: 'Regina',
+    lastname: 'Mills',
+    email: 'regina_mills@test.com',
+    imageurl: 'images/profiles/Regina Mills.jpg',
+    birthdate: '01/07/2000',
+    cpf: "375.236.560-99",
+    password: '123',
+  );
+
+  User cory = User(
+    id: 'bb58735f-9869-4755-9937-6210b16a93f8',
+    fistname: 'Cory',
+    lastname: 'Flores',
+    email: 'cory_flores@test.com',
+    imageurl: 'images/profiles/Cory Flores.jpg',
+    birthdate: '30/12/2001',
+    cpf: "448.791.490-63",
+    password: '123',
+  );
+
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 1;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(beforeOpen: (details) async {
         await customStatement('PRAGMA foreign_keys = ON');
       }, onCreate: (Migrator m) {
         //Add Users on Database creation
-        usersDao.insertUser(User(
-          id: 'f1767560-53e4-4d4e-9ec8-fb9df53ae574',
-          fistName: 'Cory',
-          lastName: 'Flores',
-          email: 'cory_flores@test.com',
-          imageUrl: 'images/profiles/Cory Flores.jpg',
-          birthDate: '01/01/2000',
-          cpf: "964.112.940-62",
-          password: '123',
-        ));
+        usersDao.insertUser(sheila);
 
-        usersDao.insertUser(User(
-          id: 'f4bbe21a-0716-40f0-8459-eb25f03fcd7d',
-          fistName: 'Connie',
-          lastName: 'Romero',
-          email: 'connie_romero@test.com',
-          imageUrl: 'images/profiles/Connie Romero.jpg',
-          birthDate: '01/02/2000',
-          cpf: "986.978.370-81",
-          password: '123',
-        ));
+        usersDao.insertUser(connie);
 
-        usersDao.insertUser(User(
-          id: 'a679ad3e-3add-4a5b-8610-988a40c061f9',
-          fistName: 'Eduardo',
-          lastName: 'Burke',
-          email: 'eduardo_burke@test.com',
-          imageUrl: 'images/profiles/Eduardo Burke.jpg',
-          birthDate: '01/03/2000',
-          cpf: "986.978.370-81",
-          password: '123',
-        ));
+        usersDao.insertUser(eduardo);
 
-        usersDao.insertUser(User(
-          id: '31262fce-0704-40d8-be76-13a3633296c4',
-          fistName: 'Georgia',
-          lastName: 'Diaz',
-          email: 'georgia_diaz@test.com',
-          imageUrl: 'images/profiles/Georgia Diaz.jpg',
-          birthDate: '01/04/2000',
-          cpf: "682.522.080-29",
-          password: '123',
-        ));
+        usersDao.insertUser(georgia);
 
-        usersDao.insertUser(User(
-          id: 'daca657d-2437-426a-8fa8-1d5096946586',
-          fistName: 'Jar',
-          lastName: 'James',
-          email: 'jar_james@test.com',
-          imageUrl: 'images/profiles/Jar James.jpg',
-          birthDate: '01/05/2000',
-          cpf: "447.516.510-56",
-          password: '123',
-        ));
+        usersDao.insertUser(jar);
 
-        usersDao.insertUser(User(
-          id: 'c4228990-89d3-4dfd-a584-591b4fe47d63',
-          fistName: 'louise',
-          lastName: 'Aleatorius',
-          email: 'louise@test.com',
-          imageUrl: 'images/profiles/louise.jpg',
-          birthDate: '01/06/2000',
-          cpf: "355.575.100-01",
-          password: '123',
-        ));
+        usersDao.insertUser(louise);
 
-        usersDao.insertUser(User(
-          id: '40d460c8-1b7f-4271-be56-8994dfa5102d',
-          fistName: 'Regina',
-          lastName: 'Mills',
-          email: 'regina_mills@test.com',
-          imageUrl: 'images/profiles/Regina Mills.jpg',
-          birthDate: '01/07/2000',
-          cpf: "375.236.560-99",
-          password: '123',
-        ));
+        usersDao.insertUser(regina);
 
-        usersDao.insertUser(User(
-          id: 'bb58735f-9869-4755-9937-6210b16a93f8',
-          fistName: 'Sheila',
-          lastName: 'Reynolds',
-          email: 'sheila_reynolds@test.com',
-          imageUrl: 'images/profiles/Sheila Reynolds.jpg',
-          birthDate: '01/08/2000',
-          cpf: "050.640.540-09",
-          password: '123',
-        ));
+        usersDao.insertUser(cory);
+
+        print("Inserindo usuarios no banco de Dados: $sheila, $connie, $eduardo, $georgia and others");
 
         return m.createAll();
       });

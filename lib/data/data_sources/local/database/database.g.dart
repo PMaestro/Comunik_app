@@ -425,21 +425,21 @@ class $MessagesTable extends Messages with TableInfo<$MessagesTable, Message> {
 
 class User extends DataClass implements Insertable<User> {
   final String id;
-  final String fistName;
-  final String lastName;
+  final String fistname;
+  final String lastname;
   final String email;
   final String password;
-  final String imageUrl;
-  final String birthDate;
+  final String imageurl;
+  final String birthdate;
   final String cpf;
   User(
       {@required this.id,
-      @required this.fistName,
-      @required this.lastName,
+      @required this.fistname,
+      @required this.lastname,
       @required this.email,
       @required this.password,
-      @required this.imageUrl,
-      @required this.birthDate,
+      @required this.imageurl,
+      @required this.birthdate,
       @required this.cpf});
   factory User.fromData(Map<String, dynamic> data, GeneratedDatabase db,
       {String prefix}) {
@@ -447,18 +447,18 @@ class User extends DataClass implements Insertable<User> {
     final stringType = db.typeSystem.forDartType<String>();
     return User(
       id: stringType.mapFromDatabaseResponse(data['${effectivePrefix}id']),
-      fistName: stringType
-          .mapFromDatabaseResponse(data['${effectivePrefix}fist_name']),
-      lastName: stringType
-          .mapFromDatabaseResponse(data['${effectivePrefix}last_name']),
+      fistname: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}fistname']),
+      lastname: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}lastname']),
       email:
           stringType.mapFromDatabaseResponse(data['${effectivePrefix}email']),
       password: stringType
           .mapFromDatabaseResponse(data['${effectivePrefix}password']),
-      imageUrl: stringType
-          .mapFromDatabaseResponse(data['${effectivePrefix}image_url']),
-      birthDate: stringType
-          .mapFromDatabaseResponse(data['${effectivePrefix}birth_date']),
+      imageurl: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}imageurl']),
+      birthdate: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}birthdate']),
       cpf: stringType.mapFromDatabaseResponse(data['${effectivePrefix}cpf']),
     );
   }
@@ -468,11 +468,11 @@ class User extends DataClass implements Insertable<User> {
     if (!nullToAbsent || id != null) {
       map['id'] = Variable<String>(id);
     }
-    if (!nullToAbsent || fistName != null) {
-      map['fist_name'] = Variable<String>(fistName);
+    if (!nullToAbsent || fistname != null) {
+      map['fistname'] = Variable<String>(fistname);
     }
-    if (!nullToAbsent || lastName != null) {
-      map['last_name'] = Variable<String>(lastName);
+    if (!nullToAbsent || lastname != null) {
+      map['lastname'] = Variable<String>(lastname);
     }
     if (!nullToAbsent || email != null) {
       map['email'] = Variable<String>(email);
@@ -480,11 +480,11 @@ class User extends DataClass implements Insertable<User> {
     if (!nullToAbsent || password != null) {
       map['password'] = Variable<String>(password);
     }
-    if (!nullToAbsent || imageUrl != null) {
-      map['image_url'] = Variable<String>(imageUrl);
+    if (!nullToAbsent || imageurl != null) {
+      map['imageurl'] = Variable<String>(imageurl);
     }
-    if (!nullToAbsent || birthDate != null) {
-      map['birth_date'] = Variable<String>(birthDate);
+    if (!nullToAbsent || birthdate != null) {
+      map['birthdate'] = Variable<String>(birthdate);
     }
     if (!nullToAbsent || cpf != null) {
       map['cpf'] = Variable<String>(cpf);
@@ -495,23 +495,23 @@ class User extends DataClass implements Insertable<User> {
   UsersCompanion toCompanion(bool nullToAbsent) {
     return UsersCompanion(
       id: id == null && nullToAbsent ? const Value.absent() : Value(id),
-      fistName: fistName == null && nullToAbsent
+      fistname: fistname == null && nullToAbsent
           ? const Value.absent()
-          : Value(fistName),
-      lastName: lastName == null && nullToAbsent
+          : Value(fistname),
+      lastname: lastname == null && nullToAbsent
           ? const Value.absent()
-          : Value(lastName),
+          : Value(lastname),
       email:
           email == null && nullToAbsent ? const Value.absent() : Value(email),
       password: password == null && nullToAbsent
           ? const Value.absent()
           : Value(password),
-      imageUrl: imageUrl == null && nullToAbsent
+      imageurl: imageurl == null && nullToAbsent
           ? const Value.absent()
-          : Value(imageUrl),
-      birthDate: birthDate == null && nullToAbsent
+          : Value(imageurl),
+      birthdate: birthdate == null && nullToAbsent
           ? const Value.absent()
-          : Value(birthDate),
+          : Value(birthdate),
       cpf: cpf == null && nullToAbsent ? const Value.absent() : Value(cpf),
     );
   }
@@ -521,12 +521,12 @@ class User extends DataClass implements Insertable<User> {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return User(
       id: serializer.fromJson<String>(json['id']),
-      fistName: serializer.fromJson<String>(json['fistName']),
-      lastName: serializer.fromJson<String>(json['lastName']),
+      fistname: serializer.fromJson<String>(json['fistname']),
+      lastname: serializer.fromJson<String>(json['lastname']),
       email: serializer.fromJson<String>(json['email']),
       password: serializer.fromJson<String>(json['password']),
-      imageUrl: serializer.fromJson<String>(json['imageUrl']),
-      birthDate: serializer.fromJson<String>(json['birthDate']),
+      imageurl: serializer.fromJson<String>(json['imageurl']),
+      birthdate: serializer.fromJson<String>(json['birthdate']),
       cpf: serializer.fromJson<String>(json['cpf']),
     );
   }
@@ -535,45 +535,45 @@ class User extends DataClass implements Insertable<User> {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
-      'fistName': serializer.toJson<String>(fistName),
-      'lastName': serializer.toJson<String>(lastName),
+      'fistname': serializer.toJson<String>(fistname),
+      'lastname': serializer.toJson<String>(lastname),
       'email': serializer.toJson<String>(email),
       'password': serializer.toJson<String>(password),
-      'imageUrl': serializer.toJson<String>(imageUrl),
-      'birthDate': serializer.toJson<String>(birthDate),
+      'imageurl': serializer.toJson<String>(imageurl),
+      'birthdate': serializer.toJson<String>(birthdate),
       'cpf': serializer.toJson<String>(cpf),
     };
   }
 
   User copyWith(
           {String id,
-          String fistName,
-          String lastName,
+          String fistname,
+          String lastname,
           String email,
           String password,
-          String imageUrl,
-          String birthDate,
+          String imageurl,
+          String birthdate,
           String cpf}) =>
       User(
         id: id ?? this.id,
-        fistName: fistName ?? this.fistName,
-        lastName: lastName ?? this.lastName,
+        fistname: fistname ?? this.fistname,
+        lastname: lastname ?? this.lastname,
         email: email ?? this.email,
         password: password ?? this.password,
-        imageUrl: imageUrl ?? this.imageUrl,
-        birthDate: birthDate ?? this.birthDate,
+        imageurl: imageurl ?? this.imageurl,
+        birthdate: birthdate ?? this.birthdate,
         cpf: cpf ?? this.cpf,
       );
   @override
   String toString() {
     return (StringBuffer('User(')
           ..write('id: $id, ')
-          ..write('fistName: $fistName, ')
-          ..write('lastName: $lastName, ')
+          ..write('fistname: $fistname, ')
+          ..write('lastname: $lastname, ')
           ..write('email: $email, ')
           ..write('password: $password, ')
-          ..write('imageUrl: $imageUrl, ')
-          ..write('birthDate: $birthDate, ')
+          ..write('imageurl: $imageurl, ')
+          ..write('birthdate: $birthdate, ')
           ..write('cpf: $cpf')
           ..write(')'))
         .toString();
@@ -583,104 +583,104 @@ class User extends DataClass implements Insertable<User> {
   int get hashCode => $mrjf($mrjc(
       id.hashCode,
       $mrjc(
-          fistName.hashCode,
+          fistname.hashCode,
           $mrjc(
-              lastName.hashCode,
+              lastname.hashCode,
               $mrjc(
                   email.hashCode,
                   $mrjc(
                       password.hashCode,
-                      $mrjc(imageUrl.hashCode,
-                          $mrjc(birthDate.hashCode, cpf.hashCode))))))));
+                      $mrjc(imageurl.hashCode,
+                          $mrjc(birthdate.hashCode, cpf.hashCode))))))));
   @override
   bool operator ==(dynamic other) =>
       identical(this, other) ||
       (other is User &&
           other.id == this.id &&
-          other.fistName == this.fistName &&
-          other.lastName == this.lastName &&
+          other.fistname == this.fistname &&
+          other.lastname == this.lastname &&
           other.email == this.email &&
           other.password == this.password &&
-          other.imageUrl == this.imageUrl &&
-          other.birthDate == this.birthDate &&
+          other.imageurl == this.imageurl &&
+          other.birthdate == this.birthdate &&
           other.cpf == this.cpf);
 }
 
 class UsersCompanion extends UpdateCompanion<User> {
   final Value<String> id;
-  final Value<String> fistName;
-  final Value<String> lastName;
+  final Value<String> fistname;
+  final Value<String> lastname;
   final Value<String> email;
   final Value<String> password;
-  final Value<String> imageUrl;
-  final Value<String> birthDate;
+  final Value<String> imageurl;
+  final Value<String> birthdate;
   final Value<String> cpf;
   const UsersCompanion({
     this.id = const Value.absent(),
-    this.fistName = const Value.absent(),
-    this.lastName = const Value.absent(),
+    this.fistname = const Value.absent(),
+    this.lastname = const Value.absent(),
     this.email = const Value.absent(),
     this.password = const Value.absent(),
-    this.imageUrl = const Value.absent(),
-    this.birthDate = const Value.absent(),
+    this.imageurl = const Value.absent(),
+    this.birthdate = const Value.absent(),
     this.cpf = const Value.absent(),
   });
   UsersCompanion.insert({
     @required String id,
-    @required String fistName,
-    @required String lastName,
+    @required String fistname,
+    @required String lastname,
     @required String email,
     @required String password,
-    @required String imageUrl,
-    @required String birthDate,
+    @required String imageurl,
+    @required String birthdate,
     @required String cpf,
   })  : id = Value(id),
-        fistName = Value(fistName),
-        lastName = Value(lastName),
+        fistname = Value(fistname),
+        lastname = Value(lastname),
         email = Value(email),
         password = Value(password),
-        imageUrl = Value(imageUrl),
-        birthDate = Value(birthDate),
+        imageurl = Value(imageurl),
+        birthdate = Value(birthdate),
         cpf = Value(cpf);
   static Insertable<User> custom({
     Expression<String> id,
-    Expression<String> fistName,
-    Expression<String> lastName,
+    Expression<String> fistname,
+    Expression<String> lastname,
     Expression<String> email,
     Expression<String> password,
-    Expression<String> imageUrl,
-    Expression<String> birthDate,
+    Expression<String> imageurl,
+    Expression<String> birthdate,
     Expression<String> cpf,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (fistName != null) 'fist_name': fistName,
-      if (lastName != null) 'last_name': lastName,
+      if (fistname != null) 'fistname': fistname,
+      if (lastname != null) 'lastname': lastname,
       if (email != null) 'email': email,
       if (password != null) 'password': password,
-      if (imageUrl != null) 'image_url': imageUrl,
-      if (birthDate != null) 'birth_date': birthDate,
+      if (imageurl != null) 'imageurl': imageurl,
+      if (birthdate != null) 'birthdate': birthdate,
       if (cpf != null) 'cpf': cpf,
     });
   }
 
   UsersCompanion copyWith(
       {Value<String> id,
-      Value<String> fistName,
-      Value<String> lastName,
+      Value<String> fistname,
+      Value<String> lastname,
       Value<String> email,
       Value<String> password,
-      Value<String> imageUrl,
-      Value<String> birthDate,
+      Value<String> imageurl,
+      Value<String> birthdate,
       Value<String> cpf}) {
     return UsersCompanion(
       id: id ?? this.id,
-      fistName: fistName ?? this.fistName,
-      lastName: lastName ?? this.lastName,
+      fistname: fistname ?? this.fistname,
+      lastname: lastname ?? this.lastname,
       email: email ?? this.email,
       password: password ?? this.password,
-      imageUrl: imageUrl ?? this.imageUrl,
-      birthDate: birthDate ?? this.birthDate,
+      imageurl: imageurl ?? this.imageurl,
+      birthdate: birthdate ?? this.birthdate,
       cpf: cpf ?? this.cpf,
     );
   }
@@ -691,11 +691,11 @@ class UsersCompanion extends UpdateCompanion<User> {
     if (id.present) {
       map['id'] = Variable<String>(id.value);
     }
-    if (fistName.present) {
-      map['fist_name'] = Variable<String>(fistName.value);
+    if (fistname.present) {
+      map['fistname'] = Variable<String>(fistname.value);
     }
-    if (lastName.present) {
-      map['last_name'] = Variable<String>(lastName.value);
+    if (lastname.present) {
+      map['lastname'] = Variable<String>(lastname.value);
     }
     if (email.present) {
       map['email'] = Variable<String>(email.value);
@@ -703,11 +703,11 @@ class UsersCompanion extends UpdateCompanion<User> {
     if (password.present) {
       map['password'] = Variable<String>(password.value);
     }
-    if (imageUrl.present) {
-      map['image_url'] = Variable<String>(imageUrl.value);
+    if (imageurl.present) {
+      map['imageurl'] = Variable<String>(imageurl.value);
     }
-    if (birthDate.present) {
-      map['birth_date'] = Variable<String>(birthDate.value);
+    if (birthdate.present) {
+      map['birthdate'] = Variable<String>(birthdate.value);
     }
     if (cpf.present) {
       map['cpf'] = Variable<String>(cpf.value);
@@ -732,25 +732,25 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
     );
   }
 
-  final VerificationMeta _fistNameMeta = const VerificationMeta('fistName');
-  GeneratedTextColumn _fistName;
+  final VerificationMeta _fistnameMeta = const VerificationMeta('fistname');
+  GeneratedTextColumn _fistname;
   @override
-  GeneratedTextColumn get fistName => _fistName ??= _constructFistName();
-  GeneratedTextColumn _constructFistName() {
+  GeneratedTextColumn get fistname => _fistname ??= _constructFistname();
+  GeneratedTextColumn _constructFistname() {
     return GeneratedTextColumn(
-      'fist_name',
+      'fistname',
       $tableName,
       false,
     );
   }
 
-  final VerificationMeta _lastNameMeta = const VerificationMeta('lastName');
-  GeneratedTextColumn _lastName;
+  final VerificationMeta _lastnameMeta = const VerificationMeta('lastname');
+  GeneratedTextColumn _lastname;
   @override
-  GeneratedTextColumn get lastName => _lastName ??= _constructLastName();
-  GeneratedTextColumn _constructLastName() {
+  GeneratedTextColumn get lastname => _lastname ??= _constructLastname();
+  GeneratedTextColumn _constructLastname() {
     return GeneratedTextColumn(
-      'last_name',
+      'lastname',
       $tableName,
       false,
     );
@@ -780,25 +780,25 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
     );
   }
 
-  final VerificationMeta _imageUrlMeta = const VerificationMeta('imageUrl');
-  GeneratedTextColumn _imageUrl;
+  final VerificationMeta _imageurlMeta = const VerificationMeta('imageurl');
+  GeneratedTextColumn _imageurl;
   @override
-  GeneratedTextColumn get imageUrl => _imageUrl ??= _constructImageUrl();
-  GeneratedTextColumn _constructImageUrl() {
+  GeneratedTextColumn get imageurl => _imageurl ??= _constructImageurl();
+  GeneratedTextColumn _constructImageurl() {
     return GeneratedTextColumn(
-      'image_url',
+      'imageurl',
       $tableName,
       false,
     );
   }
 
-  final VerificationMeta _birthDateMeta = const VerificationMeta('birthDate');
-  GeneratedTextColumn _birthDate;
+  final VerificationMeta _birthdateMeta = const VerificationMeta('birthdate');
+  GeneratedTextColumn _birthdate;
   @override
-  GeneratedTextColumn get birthDate => _birthDate ??= _constructBirthDate();
-  GeneratedTextColumn _constructBirthDate() {
+  GeneratedTextColumn get birthdate => _birthdate ??= _constructBirthdate();
+  GeneratedTextColumn _constructBirthdate() {
     return GeneratedTextColumn(
-      'birth_date',
+      'birthdate',
       $tableName,
       false,
     );
@@ -818,7 +818,7 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
 
   @override
   List<GeneratedColumn> get $columns =>
-      [id, fistName, lastName, email, password, imageUrl, birthDate, cpf];
+      [id, fistname, lastname, email, password, imageurl, birthdate, cpf];
   @override
   $UsersTable get asDslTable => this;
   @override
@@ -835,17 +835,17 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
     } else if (isInserting) {
       context.missing(_idMeta);
     }
-    if (data.containsKey('fist_name')) {
-      context.handle(_fistNameMeta,
-          fistName.isAcceptableOrUnknown(data['fist_name'], _fistNameMeta));
+    if (data.containsKey('fistname')) {
+      context.handle(_fistnameMeta,
+          fistname.isAcceptableOrUnknown(data['fistname'], _fistnameMeta));
     } else if (isInserting) {
-      context.missing(_fistNameMeta);
+      context.missing(_fistnameMeta);
     }
-    if (data.containsKey('last_name')) {
-      context.handle(_lastNameMeta,
-          lastName.isAcceptableOrUnknown(data['last_name'], _lastNameMeta));
+    if (data.containsKey('lastname')) {
+      context.handle(_lastnameMeta,
+          lastname.isAcceptableOrUnknown(data['lastname'], _lastnameMeta));
     } else if (isInserting) {
-      context.missing(_lastNameMeta);
+      context.missing(_lastnameMeta);
     }
     if (data.containsKey('email')) {
       context.handle(
@@ -859,17 +859,17 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
     } else if (isInserting) {
       context.missing(_passwordMeta);
     }
-    if (data.containsKey('image_url')) {
-      context.handle(_imageUrlMeta,
-          imageUrl.isAcceptableOrUnknown(data['image_url'], _imageUrlMeta));
+    if (data.containsKey('imageurl')) {
+      context.handle(_imageurlMeta,
+          imageurl.isAcceptableOrUnknown(data['imageurl'], _imageurlMeta));
     } else if (isInserting) {
-      context.missing(_imageUrlMeta);
+      context.missing(_imageurlMeta);
     }
-    if (data.containsKey('birth_date')) {
-      context.handle(_birthDateMeta,
-          birthDate.isAcceptableOrUnknown(data['birth_date'], _birthDateMeta));
+    if (data.containsKey('birthdate')) {
+      context.handle(_birthdateMeta,
+          birthdate.isAcceptableOrUnknown(data['birthdate'], _birthdateMeta));
     } else if (isInserting) {
-      context.missing(_birthDateMeta);
+      context.missing(_birthdateMeta);
     }
     if (data.containsKey('cpf')) {
       context.handle(

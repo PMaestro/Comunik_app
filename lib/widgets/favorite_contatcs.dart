@@ -42,7 +42,7 @@ class FavoriteContacts extends StatelessWidget {
             height: 115,
             child: FutureBuilder(
                 future: favorites,
-                initialData: '',
+                initialData: favorites,
                 builder: (context, snapshot) {
                   return ListView.builder(
                       padding: EdgeInsets.only(

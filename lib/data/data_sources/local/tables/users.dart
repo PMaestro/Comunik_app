@@ -1,4 +1,3 @@
-import 'package:comunik/data/data_sources/local/tables/contact_list.dart';
 import 'package:moor/moor.dart';
 
 ///The primary class of hierarchy, a [Users] has only one [ContactLists] and a [ContactList] can have as many contacts
@@ -6,17 +5,17 @@ import 'package:moor/moor.dart';
 class Users extends Table {
   TextColumn get id => text()();
 
-  TextColumn get fistName => text()();
+  TextColumn get fistname => text()();
 
-  TextColumn get lastName => text()();
+  TextColumn get lastname => text()();
 
   TextColumn get email => text()();
 
   TextColumn get password => text()();
 
-  TextColumn get imageUrl => text()();
+  TextColumn get imageurl => text()();
 
-  TextColumn get birthDate => text()();
+  TextColumn get birthdate => text()();
 
   TextColumn get cpf => text()();
 
