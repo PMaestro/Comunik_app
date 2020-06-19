@@ -5,7 +5,7 @@ import 'package:moor/moor.dart';
 class Users extends Table {
   TextColumn get id => text()();
 
-  TextColumn get fistname => text()();
+  TextColumn get firstname => text()();
 
   TextColumn get lastname => text()();
 

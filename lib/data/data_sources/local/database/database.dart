@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:comunik/data/data_sources/local/daos/contact_list_dao.dart';
 import 'package:comunik/data/data_sources/local/daos/group_dao.dart';
 import 'package:comunik/data/data_sources/local/daos/messages_dao.dart';
+import 'package:comunik/data/data_sources/local/daos/user_dao.dart';
 import 'package:comunik/data/data_sources/local/daos/user_groups_dao.dart';
-import 'package:comunik/data/data_sources/local/daos/users_dao.dart';
 import 'package:comunik/data/data_sources/local/tables/contact_list.dart';
 import 'package:comunik/data/data_sources/local/tables/groups.dart';
 import 'package:comunik/data/data_sources/local/tables/messages.dart';
@@ -36,11 +36,13 @@ class MyDatabase extends _$MyDatabase {
   // we tell the database where to store the data with this constructor
   MyDatabase() : super(_openConnection());
 
+  @override
+  int get schemaVersion => 1;
   // you should bump this number whenever you change or add a table definition. Migrations
   // are covered later in this readme.
   User sheila = User(
     id: 'bb58735f-9869-4755-9937-6210b16a93f8',
-    fistname: 'Sheila',
+    firstname: 'Sheila',
     lastname: 'Reynolds',
     email: 'sheila_reynolds@test.com',
     imageurl: 'images/profiles/Sheila Reynolds.jpg',
@@ -51,7 +53,7 @@ class MyDatabase extends _$MyDatabase {
 
   User connie = User(
     id: 'f4bbe21a-0716-40f0-8459-eb25f03fcd7d',
-    fistname: 'Connie',
+    firstname: 'Connie',
     lastname: 'Romero',
     email: 'connie_romero@test.com',
     imageurl: 'images/profiles/Connie Romero.jpg',
@@ -62,7 +64,7 @@ class MyDatabase extends _$MyDatabase {
 
   User eduardo = User(
     id: 'a679ad3e-3add-4a5b-8610-988a40c061f9',
-    fistname: 'Eduardo',
+    firstname: 'Eduardo',
     lastname: 'Burke',
     email: 'eduardo_burke@test.com',
     imageurl: 'images/profiles/Eduardo Burke.jpg',
@@ -73,7 +75,7 @@ class MyDatabase extends _$MyDatabase {
 
   User georgia = User(
     id: '31262fce-0704-40d8-be76-13a3633296c4',
-    fistname: 'Georgia',
+    firstname: 'Georgia',
     lastname: 'Diaz',
     email: 'georgia_diaz@test.com',
     imageurl: 'images/profiles/Georgia Diaz.jpg',
@@ -84,7 +86,7 @@ class MyDatabase extends _$MyDatabase {
 
   User jar = User(
     id: 'daca657d-2437-426a-8fa8-1d5096946586',
-    fistname: 'Jar',
+    firstname: 'Jar',
     lastname: 'James',
     email: 'jar_james@test.com',
     imageurl: 'images/profiles/Jar James.jpg',
@@ -95,7 +97,7 @@ class MyDatabase extends _$MyDatabase {
 
   User louise = User(
     id: 'c4228990-89d3-4dfd-a584-591b4fe47d63',
-    fistname: 'louise',
+    firstname: 'louise',
     lastname: 'Aleatorius',
     email: 'louise@test.com',
     imageurl: 'images/profiles/louise.jpg',
@@ -106,7 +108,7 @@ class MyDatabase extends _$MyDatabase {
 
   User regina = User(
     id: '40d460c8-1b7f-4271-be56-8994dfa5102d',
-    fistname: 'Regina',
+    firstname: 'Regina',
     lastname: 'Mills',
     email: 'regina_mills@test.com',
     imageurl: 'images/profiles/Regina Mills.jpg',
@@ -117,7 +119,7 @@ class MyDatabase extends _$MyDatabase {
 
   User cory = User(
     id: 'bb58735f-9869-4755-9937-6210b16a93f8',
-    fistname: 'Cory',
+    firstname: 'Cory',
     lastname: 'Flores',
     email: 'cory_flores@test.com',
     imageurl: 'images/profiles/Cory Flores.jpg',
@@ -127,31 +129,30 @@ class MyDatabase extends _$MyDatabase {
   );
 
   @override
-  int get schemaVersion => 1;
+  MigrationStrategy get migration => MigrationStrategy(
+        beforeOpen: (details) async {
+          await usersDao.insertUser(sheila);
 
-  @override
-  MigrationStrategy get migration => MigrationStrategy(beforeOpen: (details) async {
-        await customStatement('PRAGMA foreign_keys = ON');
-      }, onCreate: (Migrator m) {
-        //Add Users on Database creation
-        usersDao.insertUser(sheila);
+          await usersDao.insertUser(connie);
 
-        usersDao.insertUser(connie);
+          await usersDao.insertUser(eduardo);
 
-        usersDao.insertUser(eduardo);
+          await usersDao.insertUser(georgia);
 
-        usersDao.insertUser(georgia);
+          await usersDao.insertUser(jar);
 
-        usersDao.insertUser(jar);
+          await usersDao.insertUser(louise);
 
-        usersDao.insertUser(louise);
+          await usersDao.insertUser(regina);
 
-        usersDao.insertUser(regina);
+          await usersDao.insertUser(cory);
 
-        usersDao.insertUser(cory);
+          print("Inserindo usuarios no banco de Dados: $sheila, $connie, $eduardo, $georgia and others");
+        },
+        onCreate: (Migrator m) async {
+          //Add Users on Database creation
 
-        print("Inserindo usuarios no banco de Dados: $sheila, $connie, $eduardo, $georgia and others");
-
-        return m.createAll();
-      });
+          return m.createAll();
+        },
+      );
 }

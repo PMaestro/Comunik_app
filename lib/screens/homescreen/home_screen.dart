@@ -1,4 +1,4 @@
-import 'package:comunik/data/data_sources/local/daos/users_dao.dart';
+import 'package:comunik/data/data_sources/local/daos/user_dao.dart';
 import 'package:comunik/util/constants.dart';
 import 'package:comunik/widgets/category_selector.dart';
 import 'package:comunik/widgets/favorite_contatcs.dart';
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: <Widget>[
                   FavoriteContacts(
-                    favorites: _users.getAllUsers(),
+                    usersDao: _users ?? '',
                   ),
                   Expanded(
                     child: Container(

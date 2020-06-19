@@ -425,7 +425,7 @@ class $MessagesTable extends Messages with TableInfo<$MessagesTable, Message> {
 
 class User extends DataClass implements Insertable<User> {
   final String id;
-  final String fistname;
+  final String firstname;
   final String lastname;
   final String email;
   final String password;
@@ -434,7 +434,7 @@ class User extends DataClass implements Insertable<User> {
   final String cpf;
   User(
       {@required this.id,
-      @required this.fistname,
+      @required this.firstname,
       @required this.lastname,
       @required this.email,
       @required this.password,
@@ -447,8 +447,8 @@ class User extends DataClass implements Insertable<User> {
     final stringType = db.typeSystem.forDartType<String>();
     return User(
       id: stringType.mapFromDatabaseResponse(data['${effectivePrefix}id']),
-      fistname: stringType
-          .mapFromDatabaseResponse(data['${effectivePrefix}fistname']),
+      firstname: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}firstname']),
       lastname: stringType
           .mapFromDatabaseResponse(data['${effectivePrefix}lastname']),
       email:
@@ -468,8 +468,8 @@ class User extends DataClass implements Insertable<User> {
     if (!nullToAbsent || id != null) {
       map['id'] = Variable<String>(id);
     }
-    if (!nullToAbsent || fistname != null) {
-      map['fistname'] = Variable<String>(fistname);
+    if (!nullToAbsent || firstname != null) {
+      map['firstname'] = Variable<String>(firstname);
     }
     if (!nullToAbsent || lastname != null) {
       map['lastname'] = Variable<String>(lastname);
@@ -495,9 +495,9 @@ class User extends DataClass implements Insertable<User> {
   UsersCompanion toCompanion(bool nullToAbsent) {
     return UsersCompanion(
       id: id == null && nullToAbsent ? const Value.absent() : Value(id),
-      fistname: fistname == null && nullToAbsent
+      firstname: firstname == null && nullToAbsent
           ? const Value.absent()
-          : Value(fistname),
+          : Value(firstname),
       lastname: lastname == null && nullToAbsent
           ? const Value.absent()
           : Value(lastname),
@@ -521,7 +521,7 @@ class User extends DataClass implements Insertable<User> {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return User(
       id: serializer.fromJson<String>(json['id']),
-      fistname: serializer.fromJson<String>(json['fistname']),
+      firstname: serializer.fromJson<String>(json['firstname']),
       lastname: serializer.fromJson<String>(json['lastname']),
       email: serializer.fromJson<String>(json['email']),
       password: serializer.fromJson<String>(json['password']),
@@ -535,7 +535,7 @@ class User extends DataClass implements Insertable<User> {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
-      'fistname': serializer.toJson<String>(fistname),
+      'firstname': serializer.toJson<String>(firstname),
       'lastname': serializer.toJson<String>(lastname),
       'email': serializer.toJson<String>(email),
       'password': serializer.toJson<String>(password),
@@ -547,7 +547,7 @@ class User extends DataClass implements Insertable<User> {
 
   User copyWith(
           {String id,
-          String fistname,
+          String firstname,
           String lastname,
           String email,
           String password,
@@ -556,7 +556,7 @@ class User extends DataClass implements Insertable<User> {
           String cpf}) =>
       User(
         id: id ?? this.id,
-        fistname: fistname ?? this.fistname,
+        firstname: firstname ?? this.firstname,
         lastname: lastname ?? this.lastname,
         email: email ?? this.email,
         password: password ?? this.password,
@@ -568,7 +568,7 @@ class User extends DataClass implements Insertable<User> {
   String toString() {
     return (StringBuffer('User(')
           ..write('id: $id, ')
-          ..write('fistname: $fistname, ')
+          ..write('firstname: $firstname, ')
           ..write('lastname: $lastname, ')
           ..write('email: $email, ')
           ..write('password: $password, ')
@@ -583,7 +583,7 @@ class User extends DataClass implements Insertable<User> {
   int get hashCode => $mrjf($mrjc(
       id.hashCode,
       $mrjc(
-          fistname.hashCode,
+          firstname.hashCode,
           $mrjc(
               lastname.hashCode,
               $mrjc(
@@ -597,7 +597,7 @@ class User extends DataClass implements Insertable<User> {
       identical(this, other) ||
       (other is User &&
           other.id == this.id &&
-          other.fistname == this.fistname &&
+          other.firstname == this.firstname &&
           other.lastname == this.lastname &&
           other.email == this.email &&
           other.password == this.password &&
@@ -608,7 +608,7 @@ class User extends DataClass implements Insertable<User> {
 
 class UsersCompanion extends UpdateCompanion<User> {
   final Value<String> id;
-  final Value<String> fistname;
+  final Value<String> firstname;
   final Value<String> lastname;
   final Value<String> email;
   final Value<String> password;
@@ -617,7 +617,7 @@ class UsersCompanion extends UpdateCompanion<User> {
   final Value<String> cpf;
   const UsersCompanion({
     this.id = const Value.absent(),
-    this.fistname = const Value.absent(),
+    this.firstname = const Value.absent(),
     this.lastname = const Value.absent(),
     this.email = const Value.absent(),
     this.password = const Value.absent(),
@@ -627,7 +627,7 @@ class UsersCompanion extends UpdateCompanion<User> {
   });
   UsersCompanion.insert({
     @required String id,
-    @required String fistname,
+    @required String firstname,
     @required String lastname,
     @required String email,
     @required String password,
@@ -635,7 +635,7 @@ class UsersCompanion extends UpdateCompanion<User> {
     @required String birthdate,
     @required String cpf,
   })  : id = Value(id),
-        fistname = Value(fistname),
+        firstname = Value(firstname),
         lastname = Value(lastname),
         email = Value(email),
         password = Value(password),
@@ -644,7 +644,7 @@ class UsersCompanion extends UpdateCompanion<User> {
         cpf = Value(cpf);
   static Insertable<User> custom({
     Expression<String> id,
-    Expression<String> fistname,
+    Expression<String> firstname,
     Expression<String> lastname,
     Expression<String> email,
     Expression<String> password,
@@ -654,7 +654,7 @@ class UsersCompanion extends UpdateCompanion<User> {
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (fistname != null) 'fistname': fistname,
+      if (firstname != null) 'firstname': firstname,
       if (lastname != null) 'lastname': lastname,
       if (email != null) 'email': email,
       if (password != null) 'password': password,
@@ -666,7 +666,7 @@ class UsersCompanion extends UpdateCompanion<User> {
 
   UsersCompanion copyWith(
       {Value<String> id,
-      Value<String> fistname,
+      Value<String> firstname,
       Value<String> lastname,
       Value<String> email,
       Value<String> password,
@@ -675,7 +675,7 @@ class UsersCompanion extends UpdateCompanion<User> {
       Value<String> cpf}) {
     return UsersCompanion(
       id: id ?? this.id,
-      fistname: fistname ?? this.fistname,
+      firstname: firstname ?? this.firstname,
       lastname: lastname ?? this.lastname,
       email: email ?? this.email,
       password: password ?? this.password,
@@ -691,8 +691,8 @@ class UsersCompanion extends UpdateCompanion<User> {
     if (id.present) {
       map['id'] = Variable<String>(id.value);
     }
-    if (fistname.present) {
-      map['fistname'] = Variable<String>(fistname.value);
+    if (firstname.present) {
+      map['firstname'] = Variable<String>(firstname.value);
     }
     if (lastname.present) {
       map['lastname'] = Variable<String>(lastname.value);
@@ -732,13 +732,13 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
     );
   }
 
-  final VerificationMeta _fistnameMeta = const VerificationMeta('fistname');
-  GeneratedTextColumn _fistname;
+  final VerificationMeta _firstnameMeta = const VerificationMeta('firstname');
+  GeneratedTextColumn _firstname;
   @override
-  GeneratedTextColumn get fistname => _fistname ??= _constructFistname();
-  GeneratedTextColumn _constructFistname() {
+  GeneratedTextColumn get firstname => _firstname ??= _constructFirstname();
+  GeneratedTextColumn _constructFirstname() {
     return GeneratedTextColumn(
-      'fistname',
+      'firstname',
       $tableName,
       false,
     );
@@ -818,7 +818,7 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
 
   @override
   List<GeneratedColumn> get $columns =>
-      [id, fistname, lastname, email, password, imageurl, birthdate, cpf];
+      [id, firstname, lastname, email, password, imageurl, birthdate, cpf];
   @override
   $UsersTable get asDslTable => this;
   @override
@@ -835,11 +835,11 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
     } else if (isInserting) {
       context.missing(_idMeta);
     }
-    if (data.containsKey('fistname')) {
-      context.handle(_fistnameMeta,
-          fistname.isAcceptableOrUnknown(data['fistname'], _fistnameMeta));
+    if (data.containsKey('firstname')) {
+      context.handle(_firstnameMeta,
+          firstname.isAcceptableOrUnknown(data['firstname'], _firstnameMeta));
     } else if (isInserting) {
-      context.missing(_fistnameMeta);
+      context.missing(_firstnameMeta);
     }
     if (data.containsKey('lastname')) {
       context.handle(_lastnameMeta,

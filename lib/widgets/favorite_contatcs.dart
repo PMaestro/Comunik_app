@@ -1,11 +1,14 @@
-import 'package:comunik/data/data_sources/local/database/database.dart';
+import 'package:comunik/data/data_sources/local/daos/user_dao.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteContacts extends StatelessWidget {
-  final Future<List<User>> favorites;
+  final UsersDao usersDao;
 
-  const FavoriteContacts({Key key, this.favorites}) : super(key: key);
+  const FavoriteContacts({
+    Key key,
+    this.usersDao,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +43,9 @@ class FavoriteContacts extends StatelessWidget {
           ),
           Container(
             height: 115,
-            child: FutureBuilder(
-                future: favorites,
-                initialData: favorites,
+            child: StreamBuilder(
+                stream: usersDao.watchAllUsers(),
+                initialData: '',
                 builder: (context, snapshot) {
                   return ListView.builder(
                       padding: EdgeInsets.only(
@@ -50,7 +53,7 @@ class FavoriteContacts extends StatelessWidget {
                         top: 3.0,
                       ),
                       scrollDirection: Axis.horizontal,
-                      itemCount: snapshot.data.length,
+                      itemCount: (snapshot.data).length ?? 0,
                       itemBuilder: (BuildContext context, int index) {
                         return Padding(
                           padding: EdgeInsets.all(8.0),
@@ -58,13 +61,13 @@ class FavoriteContacts extends StatelessWidget {
                             children: <Widget>[
                               CircleAvatar(
                                 radius: 35.0,
-                                backgroundImage: AssetImage(snapshot.data[index].imageUrl),
+                                backgroundImage: AssetImage(snapshot.data[index].imageurl),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
                               Text(
-                                snapshot.data[index].firstName,
+                                snapshot.data[index].firstname,
                                 style: TextStyle(
                                   color: Colors.blueGrey,
                                   fontSize: 16,
